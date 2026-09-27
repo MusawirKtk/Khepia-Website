@@ -1,0 +1,378 @@
+---
+const navLinks = [
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Send", href: "#sender" },
+  { label: "Carry", href: "#carry" },
+  { label: "Safety", href: "#safety" },
+  { label: "Training", href: "#training" },
+  { label: "Support", href: "#support" },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="header-inner container">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="Khepia home">
+      <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.15"/>
+        <path d="M8 24V8h4v6.5L17.5 8H22l-6.5 7.5L22 24h-4.5l-4-6.2L12 19v5H8z" fill="currentColor"/>
+      </svg>
+      <span class="logo-text">Khepia</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a href="#get-khepia" class="btn btn--primary header-cta">
+      Get Khepia
+    </a>
+
+    <!-- Mobile controls -->
+    <div class="mobile-controls">
+      <a href="#get-khepia" class="btn btn--primary btn--sm mobile-cta">
+        Get app
+      </a>
+      <button
+        class="menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        id="menu-toggle"
+      >
+        <span class="menu-icon">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <span class="logo-text">Khepia</span>
+      <button class="menu-close" aria-label="Close menu" id="menu-close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      {navLinks.map((link) => (
+        <a href={link.href} class="mobile-nav-link">{link.label}</a>
+      ))}
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="#get-khepia" class="btn btn--primary btn--lg mobile-menu-cta">
+        Get Khepia
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ── Header ──────────────────────────────────────────── */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-header);
+    height: 72px;
+    transition:
+      height var(--duration-normal) var(--ease-out),
+      background-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .site-header.is-scrolled {
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--border-soft);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: var(--space-8);
+  }
+
+  /* ── Logo ────────────────────────────────────────────── */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-on-dark);
+    flex-shrink: 0;
+    transition: color var(--duration-normal) var(--ease-out);
+  }
+
+  .is-scrolled .logo {
+    color: var(--brand-deep);
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Desktop Nav ─────────────────────────────────────── */
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-nav {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-on-dark-secondary);
+    transition: color var(--duration-fast) var(--ease-out);
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--text-on-dark);
+  }
+
+  .is-scrolled .nav-link {
+    color: var(--text-secondary);
+  }
+
+  .is-scrolled .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* ── Header CTA ──────────────────────────────────────── */
+  .header-cta {
+    display: none;
+    min-height: 40px;
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-label);
+  }
+
+  @media (min-width: 1024px) {
+    .header-cta {
+      display: inline-flex;
+    }
+  }
+
+  /* ── Mobile Controls ─────────────────────────────────── */
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-controls {
+      display: none;
+    }
+  }
+
+  .btn--sm {
+    min-height: 36px;
+    padding: var(--space-1) var(--space-4);
+    font-size: var(--text-xs);
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--text-on-dark);
+    transition: color var(--duration-normal) var(--ease-out);
+  }
+
+  .is-scrolled .menu-toggle {
+    color: var(--text-primary);
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+  }
+
+  .bar {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  /* ── Mobile Menu ─────────────────────────────────────── */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .mobile-menu.is-open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .mobile-menu-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color var(--duration-slow) var(--ease-out);
+  }
+
+  .mobile-menu.is-open .mobile-menu-backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background-color: var(--surface);
+    transform: translateX(100%);
+    transition: transform var(--duration-slow) var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mobile-menu.is-open .mobile-menu-panel {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    height: 72px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .mobile-menu-header .logo-text {
+    color: var(--brand-deep);
+  }
+
+  .menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--text-secondary);
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) 0;
+    flex: 1;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-body);
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+    min-height: 48px;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .mobile-nav-link:hover {
+    background-color: var(--surface-soft);
+  }
+
+  .mobile-menu-footer {
+    padding: var(--space-6);
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .mobile-menu-cta {
+    width: 100%;
+  }
+</style>
+
+<script>
+  // Scroll behavior — transparent to solid
+  const header = document.getElementById('site-header')!;
+  const scrollThreshold = 50;
+
+  function updateHeader() {
+    if (window.scrollY > scrollThreshold) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menu-toggle')!;
+  const menuClose = document.getElementById('menu-close')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const backdrop = document.getElementById('mobile-menu-backdrop')!;
+
+  function openMenu() {
+    mobileMenu.classList.add('is-open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('is-open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  // Close on nav link click
+  mobileMenu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+</script>

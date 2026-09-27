@@ -1,0 +1,110 @@
+---
+---
+
+<section class="final-cta section section--navy" id="get-khepia">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-headline">Something to send? Flying somewhere?</h2>
+
+      <div class="cta-cards">
+        <!-- Sender card -->
+        <div class="cta-card">
+          <h3 class="cta-card-title">Have something to send?</h3>
+          <p class="cta-card-desc">Send a parcel with a verified traveller already going your way.</p>
+          <a href="#sender" class="btn btn--on-dark btn--lg">Send a parcel</a>
+        </div>
+
+        <!-- Route illustration -->
+        <div class="cta-route" aria-hidden="true">
+          <div class="cta-route-line"></div>
+          <svg class="cta-route-mark" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="white" opacity="0.1"/>
+            <path d="M8 24V8h4v6.5L17.5 8H22l-6.5 7.5L22 24h-4.5l-4-6.2L12 19v5H8z" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <!-- Passenger card -->
+        <div class="cta-card">
+          <h3 class="cta-card-title">Flying soon?</h3>
+          <p class="cta-card-desc">Turn unused baggage capacity into earnings.</p>
+          <a href="#carry" class="btn btn--on-dark btn--lg">Carry with Khepia</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    padding-block: var(--space-30);
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-headline {
+    font-size: var(--text-h1);
+    color: var(--text-on-dark);
+    margin-bottom: var(--space-12);
+  }
+
+  .cta-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 900px;
+    margin-inline: auto;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .cta-cards {
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .cta-card {
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-2xl);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .cta-card-title {
+    font-size: var(--text-h3);
+    color: var(--text-on-dark);
+  }
+
+  .cta-card-desc {
+    font-size: var(--text-sm);
+    color: var(--text-on-dark-secondary);
+    max-width: 280px;
+  }
+
+  /* ── Route illustration ─────────────────────────────── */
+  .cta-route {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .cta-route {
+      display: flex;
+    }
+  }
+
+  .cta-route-line {
+    width: 2px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>

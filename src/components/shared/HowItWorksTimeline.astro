@@ -1,0 +1,199 @@
+---
+const steps = [
+  { num: 1, label: "Sender posts parcel", icon: "📦" },
+  { num: 2, label: "Passenger posts flight", icon: "✈️" },
+  { num: 3, label: "Khepia finds matches", icon: "🔗" },
+  { num: 4, label: "Both sides agree", icon: "🤝" },
+  { num: 5, label: "Payments verified", icon: "💳" },
+  { num: 6, label: "Contacts unlock", icon: "🔓" },
+  { num: 7, label: "Parcel collected", icon: "📋" },
+  { num: 8, label: "Passenger travels", icon: "🛫" },
+  { num: 9, label: "Recipient receives", icon: "📬" },
+  { num: 10, label: "Delivery confirmed", icon: "✅" },
+  { num: 11, label: "Passenger paid", icon: "💰" },
+  { num: 12, label: "Both rate", icon: "⭐" },
+];
+---
+
+<section class="how-it-works section section--soft" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">One parcel. One traveller. One matching journey.</h2>
+      <p class="section-subtitle">From posting to payout — every step in one flow.</p>
+    </div>
+
+    <div class="timeline-wrapper">
+      <!-- Desktop: horizontal path -->
+      <div class="timeline-horizontal" role="list">
+        {steps.map((step, index) => (
+          <div class="timeline-step reveal" style={`transition-delay: ${index * 60}ms`} role="listitem">
+            <div class="step-marker">
+              <span class="step-num">{step.num}</span>
+            </div>
+            <div class="step-connector" aria-hidden="true"></div>
+            <p class="step-label">{step.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile: vertical timeline -->
+      <div class="timeline-vertical" role="list">
+        {steps.map((step, index) => (
+          <div class="timeline-v-step reveal" style={`transition-delay: ${index * 40}ms`} role="listitem">
+            <div class="v-step-track">
+              <div class="v-step-dot">
+                <span class="step-num-v">{step.num}</span>
+              </div>
+              {index < steps.length - 1 && <div class="v-step-line" aria-hidden="true"></div>}
+            </div>
+            <p class="v-step-label">{step.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: var(--container-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  /* ── Desktop Horizontal ──────────────────────────── */
+  .timeline-horizontal {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-horizontal {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      position: relative;
+    }
+  }
+
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 var(--space-1);
+  }
+
+  .step-marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-label);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-3);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--surface-soft);
+  }
+
+  .step-num {
+    line-height: 1;
+  }
+
+  .step-connector {
+    position: absolute;
+    top: 20px;
+    left: calc(50% + 20px);
+    right: calc(-50% + 20px);
+    height: 2px;
+    background: var(--border-medium);
+    z-index: 1;
+  }
+
+  .timeline-step:last-child .step-connector {
+    display: none;
+  }
+
+  .step-label {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    max-width: 100px;
+  }
+
+  /* ── Mobile Vertical ─────────────────────────────── */
+  .timeline-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: var(--space-2);
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-vertical {
+      display: none;
+    }
+  }
+
+  .timeline-v-step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .v-step-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .v-step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    flex-shrink: 0;
+  }
+
+  .step-num-v {
+    line-height: 1;
+  }
+
+  .v-step-line {
+    width: 2px;
+    height: 24px;
+    background: var(--border-medium);
+  }
+
+  .v-step-label {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    font-weight: var(--weight-medium);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-3);
+  }
+</style>

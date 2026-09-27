@@ -1,0 +1,378 @@
+---
+import { demoMoney, demoParcel, formatPKR } from '../../data/demo';
+---
+
+<section class="money section section--navy" id="money-flow">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="money-title">See where every rupee goes.</h2>
+      <p class="money-subtitle">Clear rules for every payment. No surprises.</p>
+    </div>
+
+    <div class="money-grid">
+      <!-- Sender side -->
+      <div class="ledger-card reveal">
+        <div class="ledger-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 10h20"/></svg>
+          <span>Sender pays</span>
+        </div>
+        <div class="ledger-body">
+          <div class="ledger-row">
+            <span class="ledger-label">Carrying amount</span>
+            <span class="ledger-amount">{formatPKR(demoMoney.senderCarryingAmount)}</span>
+          </div>
+          <div class="ledger-divider"></div>
+          <div class="ledger-row">
+            <span class="ledger-label">Sender transfers</span>
+            <span class="ledger-amount ledger-amount--bold">{formatPKR(demoMoney.senderCarryingAmount)}</span>
+          </div>
+          <div class="ledger-status">
+            <div class="status-step">
+              <span class="status-dot status-dot--done"></span>
+              <span>Payment submitted</span>
+            </div>
+            <div class="status-step">
+              <span class="status-dot status-dot--done"></span>
+              <span>Khepia verifies</span>
+            </div>
+            <div class="status-step">
+              <span class="status-dot status-dot--active"></span>
+              <span>Payment held</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Passenger side -->
+      <div class="ledger-card reveal" style="transition-delay: 120ms">
+        <div class="ledger-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <span>Passenger pays</span>
+        </div>
+        <div class="ledger-body">
+          <div class="ledger-row">
+            <span class="ledger-label">Refundable deposit (declared value)</span>
+            <span class="ledger-amount">{formatPKR(demoMoney.passengerDeposit)}</span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-label">Khepia commission (10%)</span>
+            <span class="ledger-amount">{formatPKR(demoMoney.commission)}</span>
+          </div>
+          <div class="ledger-divider"></div>
+          <div class="ledger-row">
+            <span class="ledger-label">Passenger transfers</span>
+            <span class="ledger-amount ledger-amount--bold">{formatPKR(demoMoney.passengerUpfront)}</span>
+          </div>
+          <div class="ledger-breakdown">
+            <span>{formatPKR(demoMoney.passengerDeposit)} refundable deposit</span>
+            <span>{formatPKR(demoMoney.commission)} Khepia commission</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- After delivery -->
+      <div class="ledger-card ledger-card--result reveal" style="transition-delay: 240ms">
+        <div class="ledger-header ledger-header--ok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>After successful delivery</span>
+        </div>
+        <div class="ledger-body">
+          <div class="ledger-row">
+            <span class="ledger-label">Deposit returned to passenger</span>
+            <span class="ledger-amount ledger-amount--ok">{formatPKR(demoMoney.passengerDeposit)}</span>
+          </div>
+          <div class="ledger-row">
+            <span class="ledger-label">Net carrying earning</span>
+            <span class="ledger-amount ledger-amount--ok">{formatPKR(demoMoney.passengerNetEarning)}</span>
+          </div>
+          <div class="ledger-divider"></div>
+          <div class="ledger-row">
+            <span class="ledger-label">Total released to passenger</span>
+            <span class="ledger-amount ledger-amount--bold ledger-amount--ok">{formatPKR(demoMoney.passengerCompletionRelease)}</span>
+          </div>
+          <div class="ledger-divider"></div>
+          <div class="ledger-row">
+            <span class="ledger-label">Khepia retains</span>
+            <span class="ledger-amount">{formatPKR(demoMoney.khepiaRetains)}</span>
+          </div>
+        </div>
+        <p class="ledger-note">Example values only</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Deposit explainer -->
+<section class="deposit section section--navy deposit-section" id="deposit">
+  <div class="container">
+    <div class="deposit-inner reveal">
+      <h3 class="deposit-title">Why does the traveller deposit the parcel value?</h3>
+      <div class="deposit-visual">
+        <div class="deposit-step">
+          <span class="deposit-label">Parcel declared value</span>
+          <span class="deposit-value">{formatPKR(demoParcel.declaredValue)}</span>
+        </div>
+        <svg class="deposit-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <div class="deposit-step">
+          <span class="deposit-label">Refundable deposit</span>
+          <span class="deposit-value">{formatPKR(demoParcel.declaredValue)}</span>
+        </div>
+        <svg class="deposit-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <div class="deposit-step deposit-step--ok">
+          <span class="deposit-label">After confirmed delivery</span>
+          <span class="deposit-value deposit-value--ok">{formatPKR(demoParcel.declaredValue)} returned</span>
+        </div>
+      </div>
+      <p class="deposit-explanation">
+        The traveller temporarily has possession of a parcel belonging to someone else. The refundable deposit is linked to the parcel's declared value and is returned after the delivery flow completes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .money-title {
+    font-size: var(--text-h2);
+    color: var(--text-on-dark);
+    margin-bottom: var(--space-4);
+  }
+
+  .money-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: var(--container-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  /* ── Grid ───────────────────────────────────────────── */
+  .money-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: var(--container-wide);
+    margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .money-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .money-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  /* ── Ledger Card ────────────────────────────────────── */
+  .ledger-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .ledger-card--result {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 768px) {
+    .ledger-card--result {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ledger-card--result {
+      grid-column: auto;
+    }
+  }
+
+  .ledger-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .ledger-header--ok {
+    color: #5CEBA0;
+  }
+
+  .ledger-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .ledger-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .ledger-label {
+    font-size: var(--text-label);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .ledger-amount {
+    font-size: var(--text-sm);
+    color: var(--text-on-dark);
+    font-weight: var(--weight-medium);
+    white-space: nowrap;
+  }
+
+  .ledger-amount--bold {
+    font-weight: var(--weight-bold);
+    font-size: var(--text-body);
+  }
+
+  .ledger-amount--ok {
+    color: #5CEBA0;
+  }
+
+  .ledger-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .ledger-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: var(--text-xs);
+    color: var(--text-on-dark-muted);
+    padding-left: var(--space-2);
+  }
+
+  .ledger-note {
+    padding: var(--space-2) var(--space-5) var(--space-4);
+    font-size: 10px;
+    color: var(--text-on-dark-muted);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── Status steps ──────────────────────────────────── */
+  .ledger-status {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+  }
+
+  .status-step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-dot--done {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .status-dot--active {
+    background: #5CEBA0;
+    box-shadow: 0 0 8px rgba(92, 235, 160, 0.4);
+  }
+
+  /* ── Deposit Section ───────────────────────────────── */
+  .deposit-section {
+    padding-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .deposit-inner {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .deposit-title {
+    font-size: var(--text-h3);
+    color: var(--text-on-dark);
+    margin-bottom: var(--space-8);
+  }
+
+  .deposit-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .deposit-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 160px;
+  }
+
+  .deposit-step--ok {
+    border-color: rgba(92, 235, 160, 0.3);
+    background: rgba(92, 235, 160, 0.06);
+  }
+
+  .deposit-label {
+    font-size: var(--text-xs);
+    color: var(--text-on-dark-muted);
+  }
+
+  .deposit-value {
+    font-size: var(--text-body);
+    font-weight: var(--weight-bold);
+    color: var(--text-on-dark);
+  }
+
+  .deposit-value--ok {
+    color: #5CEBA0;
+  }
+
+  .deposit-arrow {
+    color: var(--text-on-dark-muted);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 639px) {
+    .deposit-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  .deposit-explanation {
+    font-size: var(--text-sm);
+    color: var(--text-on-dark-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+</style>

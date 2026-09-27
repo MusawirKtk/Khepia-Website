@@ -1,0 +1,105 @@
+---
+const promises = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Verified people",
+    description: "CNIC and contact verification for every user.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+    title: "Matching journeys",
+    description: "Origin, destination, dates, and available weight.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 10h20"/><path d="M12 14h4"/></svg>`,
+    title: "Protected transaction",
+    description: "Clear payment and deposit rules.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
+    title: "Tracked handover",
+    description: "Collection, travel, delivery proof, and confirmation.",
+  },
+];
+---
+
+<section class="promises section section--white" id="promises">
+  <div class="container">
+    <div class="promises-grid">
+      {promises.map((promise, index) => (
+        <div class="promise-card reveal" style={`transition-delay: ${index * 80}ms`}>
+          <div class="promise-icon" set:html={promise.icon} />
+          <h3 class="promise-title">{promise.title}</h3>
+          <p class="promise-desc">{promise.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .promises {
+    position: relative;
+    z-index: 1;
+    margin-top: -60px;
+    padding-top: var(--space-20);
+  }
+
+  .promises-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .promises-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .promises-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  .promise-card {
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    text-align: center;
+    transition:
+      opacity var(--duration-slow) var(--ease-out),
+      transform var(--duration-slow) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .promise-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .promise-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--surface-tint);
+    color: var(--brand-primary);
+    margin: 0 auto var(--space-4);
+  }
+
+  .promise-title {
+    font-size: var(--text-card);
+    font-weight: var(--weight-semibold);
+    margin-bottom: var(--space-2);
+  }
+
+  .promise-desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+</style>

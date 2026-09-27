@@ -1,0 +1,115 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import LegalFooter from '../components/layout/LegalFooter.astro';
+
+const title = "Terms of Service — Khepia";
+---
+
+<MarketingLayout title={title}>
+  <SiteHeader />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p class="legal-notice">These terms are pending final legal review. The content below is a structural placeholder.</p>
+
+      <section>
+        <h2>1. Introduction</h2>
+        <p>These Terms of Service govern your use of the Khepia platform, a marketplace connecting verified senders with verified travellers who have spare baggage capacity on flights between the Gulf region and Pakistan.</p>
+      </section>
+
+      <section>
+        <h2>2. Eligibility</h2>
+        <p>You must be at least 18 years of age and hold a valid CNIC to use Khepia. All users must complete the verification process before accessing core platform features.</p>
+      </section>
+
+      <section>
+        <h2>3. User accounts</h2>
+        <p>Each user maintains one verified account that can operate in both Sender and Passenger modes. You are responsible for all activity under your account.</p>
+      </section>
+
+      <section>
+        <h2>4. Sender obligations</h2>
+        <p>Senders must accurately declare parcel contents, provide truthful weight and value information, photograph parcels as required, and comply with all applicable customs regulations.</p>
+      </section>
+
+      <section>
+        <h2>5. Passenger obligations</h2>
+        <p>Passengers must inspect parcels before accepting them, understand that they are responsible for the contents of their baggage at customs, and complete the delivery process as outlined in the platform.</p>
+      </section>
+
+      <section>
+        <h2>6. Payment and commission</h2>
+        <p>Khepia holds payments until delivery is confirmed. The platform charges a commission on each transaction. Passengers are required to place a refundable deposit linked to the declared value of the parcel.</p>
+      </section>
+
+      <section>
+        <h2>7. Disputes</h2>
+        <p>The sender has a confirmation period following delivery marking to confirm receipt or open a dispute. Khepia's support team reviews evidence from both parties.</p>
+      </section>
+
+      <section>
+        <h2>8. Prohibited items</h2>
+        <p>Users must not send or carry prohibited or restricted items. See the <a href="/prohibited-items">Prohibited Items</a> policy for details.</p>
+      </section>
+
+      <section>
+        <h2>9. Limitation of liability</h2>
+        <p>This section is pending legal review.</p>
+      </section>
+
+      <section>
+        <h2>10. Changes to terms</h2>
+        <p>Khepia may update these terms. Continued use of the platform constitutes acceptance of updated terms.</p>
+      </section>
+    </div>
+  </main>
+  <LegalFooter />
+</MarketingLayout>
+
+<style>
+  .legal-page {
+    padding-top: 120px;
+    padding-bottom: var(--space-16);
+  }
+
+  .legal-page .container {
+    max-width: var(--container-narrow);
+  }
+
+  .legal-page h1 {
+    font-size: var(--text-h1);
+    margin-bottom: var(--space-6);
+  }
+
+  .legal-notice {
+    padding: var(--space-4) var(--space-5);
+    background: var(--warn-soft);
+    color: var(--warn);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    margin-bottom: var(--space-10);
+  }
+
+  .legal-page section {
+    margin-bottom: var(--space-8);
+  }
+
+  .legal-page h2 {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-3);
+  }
+
+  .legal-page p {
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .legal-page a {
+    color: var(--brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

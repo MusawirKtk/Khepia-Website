@@ -1,0 +1,121 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import Hero from '../components/hero/Hero.astro';
+import TrustPromiseRow from '../components/shared/TrustPromiseRow.astro';
+import HowItWorksTimeline from '../components/shared/HowItWorksTimeline.astro';
+import TrainingCenter from '../components/training/TrainingCenter.astro';
+import RoleModeToggle from '../components/shared/RoleModeToggle.astro';
+import SenderStory from '../components/sender/SenderStory.astro';
+import MatchingEngine from '../components/matching/MatchingEngine.astro';
+import PassengerInbox from '../components/passenger/PassengerInbox.astro';
+import MoneyLedger from '../components/money/MoneyLedger.astro';
+import VerificationLayers from '../components/trust/VerificationLayers.astro';
+import TrackingFlow from '../components/tracking/TrackingFlow.astro';
+import SafetySection from '../components/shared/SafetySection.astro';
+import SupportSection from '../components/support/SupportSection.astro';
+import FAQAccordion from '../components/faq/FAQAccordion.astro';
+import FinalCTA from '../components/shared/FinalCTA.astro';
+import LegalFooter from '../components/layout/LegalFooter.astro';
+---
+
+<MarketingLayout>
+  <SiteHeader />
+
+  <main>
+    <!-- 1. Hero -->
+    <Hero />
+
+    <!-- 2. Four product promises -->
+    <TrustPromiseRow />
+
+    <!-- 3. How Khepia Works -->
+    <HowItWorksTimeline />
+
+    <!-- 4. Training Centre -->
+    <TrainingCenter />
+
+    <!-- 5. One account, two modes -->
+    <RoleModeToggle />
+
+    <!-- 6. Sender journey -->
+    <SenderStory />
+
+    <!-- 7. Matching engine -->
+    <MatchingEngine />
+
+    <!-- 8. Passenger offer inbox + counter-offer -->
+    <PassengerInbox />
+
+    <!-- 9–10. Money flow + deposit explainer -->
+    <MoneyLedger />
+
+    <!-- 11–12. Verification, privacy, contact unlock -->
+    <VerificationLayers />
+
+    <!-- 13–19. Collection, flight, tracking, delivery, confirmation, payout, ratings -->
+    <TrackingFlow />
+
+    <!-- 20. Safety and customs -->
+    <SafetySection />
+
+    <!-- 21. Support -->
+    <SupportSection />
+
+    <!-- 22. FAQ -->
+    <FAQAccordion />
+
+    <!-- 23. Final CTA -->
+    <FinalCTA />
+  </main>
+
+  <LegalFooter />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Khepia",
+    "url": "https://khepia.pk",
+    "description": "Khepia connects verified senders and travellers already flying between the UAE, Saudi Arabia and Pakistan."
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Khepia",
+    "url": "https://khepia.pk",
+    "description": "Parcel delivery marketplace connecting senders with verified travellers on existing flights between the Gulf and Pakistan."
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What can I send with Khepia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Khepia supports non-dutiable, permitted personal items such as clothes, confectionery, electronics, gifts, and personal belongings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Khepia verify users?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every user goes through CNIC verification, WhatsApp number verification, email verification, and manual account review."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the passenger pay a refundable deposit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The traveller temporarily has possession of a parcel belonging to someone else. The refundable deposit is linked to the parcel's declared value and is returned after the delivery flow completes."
+        }
+      }
+    ]
+  })} />
+</MarketingLayout>

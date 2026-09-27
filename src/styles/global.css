@@ -1,0 +1,314 @@
+/* ============================================================
+   Khepia Global Styles
+   Reset, base typography, scroll behavior, and utilities.
+   ============================================================ */
+
+@import './tokens.css';
+
+/* ── Reset ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+strong {
+  font-weight: var(--weight-semibold);
+}
+
+/* ── Focus ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background-color: var(--ink-100);
+  color: var(--ink-700);
+}
+
+/* ── Containers ──────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-10);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: var(--space-12);
+  }
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.container-text {
+  max-width: var(--container-text);
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+}
+
+/* ── Section Spacing ─────────────────────────────────────── */
+.section {
+  padding-block: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-24);
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding-block: var(--space-30);
+  }
+}
+
+/* ── Section Backgrounds ─────────────────────────────────── */
+.section--white {
+  background-color: var(--surface);
+}
+
+.section--soft {
+  background-color: var(--surface-soft);
+}
+
+.section--tint {
+  background-color: var(--surface-tint);
+}
+
+.section--navy {
+  background-color: var(--surface-navy);
+  color: var(--text-on-dark);
+}
+
+.section--navy h1,
+.section--navy h2,
+.section--navy h3,
+.section--navy h4 {
+  color: var(--text-on-dark);
+}
+
+.section--navy p {
+  color: var(--text-on-dark-secondary);
+}
+
+.section--deep {
+  background-color: var(--surface-deep);
+  color: var(--text-on-dark);
+}
+
+.section--deep h1,
+.section--deep h2,
+.section--deep h3,
+.section--deep h4 {
+  color: var(--text-on-dark);
+}
+
+.section--deep p {
+  color: var(--text-on-dark-secondary);
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  line-height: 1;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+  background-color: var(--brand-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--brand-primary);
+  border: 1.5px solid var(--border-medium);
+}
+
+.btn--secondary:hover {
+  border-color: var(--brand-primary);
+  background-color: var(--ink-50);
+}
+
+.btn--on-dark {
+  background-color: #FFFFFF;
+  color: var(--brand-deep);
+}
+
+.btn--on-dark:hover {
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--outline-dark {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid var(--border-on-dark);
+}
+
+.btn--outline-dark:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.btn--lg {
+  font-size: var(--text-body);
+  padding: var(--space-4) var(--space-8);
+  min-height: 52px;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 639px) {
+  .btn--lg {
+    width: 100%;
+  }
+}
+
+/* ── Visually Hidden (accessibility) ─────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Reveal Animation Base ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
