@@ -11,7 +11,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What can I send with Khepia?",
     answer:
-      "Non-dutiable, permitted personal items — clothes, confectionery, electronics, household items, and similar. Check the prohibited items list before you post. If your item isn't listed, email khepia.pk@gmail.com.",
+      "Only non-dutiable items. The Terms ban cash, gold/jewellery, medicines, alcohol, tobacco, phones, high-value electronics, documents/letters, lithium batteries, and more — see Prohibited items. If unsure, email khepia.pk@gmail.com before you post.",
   },
   {
     question: "How does Khepia verify users?",

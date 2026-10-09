@@ -124,7 +124,12 @@ import { demoMoney, demoParcel, formatPKR } from '../../data/demo';
         </div>
       </div>
       <p class="deposit-explanation">
-        The traveller temporarily has possession of a parcel belonging to someone else. The refundable deposit is linked to the parcel's declared value and is returned after the delivery flow completes.
+        The Deposit equals the Declared Value. Khepia holds it as security for the Passenger’s performance (and for any Parcel Protection under the Terms). On Completion it is returned with the Delivery Fee within 5 Working Days. Sender pays the Delivery Fee first; then the Passenger pays Deposit + 10% Commission.
+      </p>
+      <p class="deposit-link">
+        <a href="/payments-refunds">Payments &amp; refunds</a>
+        ·
+        <a href="/terms#clause-13">Full Terms</a>
       </p>
     </div>
   </div>
@@ -366,6 +371,18 @@ import { demoMoney, demoParcel, formatPKR } from '../../data/demo';
     .deposit-arrow {
       transform: rotate(90deg);
     }
+  }
+
+  .deposit-link {
+    margin-top: var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .deposit-link a {
+    color: var(--text-on-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .deposit-explanation {

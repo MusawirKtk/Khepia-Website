@@ -6,7 +6,7 @@
     <div class="safety-header reveal">
       <h2 class="section-title-center">Verified people. Clear rules.</h2>
       <p class="safety-intro">
-        Every account is CNIC-checked and manually reviewed. Contacts stay private until both sides have paid. Here's what each role agrees to.
+        Every account is CNIC-checked and manually reviewed. Contacts stay private until both sides have paid. Non-dutiable items only — see the Terms for the full prohibited list.
       </p>
     </div>
 
@@ -15,34 +15,39 @@
         <h3 class="safety-role">Sender</h3>
         <ul class="safety-list">
           <li>Declare contents and weight accurately</li>
-          <li>Send only permitted / non-dutiable items</li>
-          <li>Photograph and pack as the app requires</li>
-          <li>Accept customs risk disclosures</li>
+          <li>Send only non-dutiable, non-prohibited items</li>
+          <li>Upload required photos and pack for air travel</li>
+          <li>Accept that customs may detain or confiscate</li>
         </ul>
       </div>
 
       <div class="safety-card reveal" style="transition-delay: 80ms">
         <h3 class="safety-role">Passenger</h3>
         <ul class="safety-list">
-          <li>Inspect the parcel before accepting</li>
-          <li>Know what you are carrying</li>
-          <li>Refuse unopened or suspicious items</li>
-          <li>Understand customs responsibility for baggage</li>
+          <li>Inspect before accepting; refuse if contents don’t match</li>
+          <li>Must refuse if a Prohibited Item is suspected</li>
+          <li>Carry in your own baggage; declare when required</li>
+          <li>Deliver only to the named Receiver after CNIC check</li>
         </ul>
       </div>
 
       <div class="safety-card reveal" style="transition-delay: 160ms">
-        <h3 class="safety-role">Recipient</h3>
+        <h3 class="safety-role">Receiver</h3>
         <ul class="safety-list">
-          <li>Identity must match the delivery record</li>
-          <li>May need CNIC evidence at handover</li>
+          <li>Must match the name and CNIC on the Booking</li>
+          <li>Original CNIC required at handover — no other ID</li>
+          <li>Delivery photo includes Receiver CNIC with the Parcel</li>
         </ul>
       </div>
     </div>
 
     <div class="prohibited-link reveal">
-      <p>Check what you can and cannot send before creating a parcel.</p>
-      <a href="/prohibited-items" class="btn btn--secondary">View prohibited items</a>
+      <p>Full rules live in the Terms. Start with what you cannot send.</p>
+      <div class="prohibited-actions">
+        <a href="/prohibited-items" class="btn btn--secondary">Prohibited items</a>
+        <a href="/customs-and-liability" class="btn btn--secondary">Customs &amp; liability</a>
+        <a href="/terms" class="btn btn--secondary">Terms and Conditions</a>
+      </div>
     </div>
   </div>
 </section>
@@ -131,5 +136,12 @@
   .prohibited-link p {
     font-size: var(--text-sm);
     color: var(--text-secondary);
+  }
+
+  .prohibited-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
   }
 </style>
