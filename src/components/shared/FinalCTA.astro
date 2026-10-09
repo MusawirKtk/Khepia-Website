@@ -10,6 +10,11 @@
         <a href="#sender" class="btn btn--on-dark btn--lg">Send a parcel</a>
         <a href="#carry" class="btn btn--outline-dark btn--lg">Carry & earn</a>
       </div>
+      <p class="cta-legal">
+        <a href="/terms">Terms</a>
+        <span aria-hidden="true">·</span>
+        <a href="/privacy">Privacy</a>
+      </p>
     </div>
   </div>
 </section>
@@ -42,5 +47,25 @@
     flex-wrap: wrap;
     gap: var(--space-4);
     justify-content: center;
+  }
+
+  .cta-legal {
+    margin-top: var(--space-8);
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    align-items: center;
+    font-size: var(--text-sm);
+    color: var(--text-on-dark-secondary);
+  }
+
+  .cta-legal a {
+    color: var(--text-on-dark-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cta-legal a:hover {
+    color: var(--text-on-dark);
   }
 </style>

@@ -43,6 +43,13 @@ const supportTopics = [
         ))}
       </div>
     </div>
+
+    <p class="support-legal reveal">
+      Before you register, read the
+      <a href="/terms">Terms and Conditions</a>
+      and
+      <a href="/privacy">Privacy Policy</a>.
+    </p>
   </div>
 </section>
 
@@ -148,5 +155,18 @@ const supportTopics = [
     border: 1px solid var(--border-soft);
     font-size: var(--text-label);
     color: var(--text-secondary);
+  }
+
+  .support-legal {
+    text-align: center;
+    margin-top: var(--space-10);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .support-legal a {
+    color: var(--brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>
