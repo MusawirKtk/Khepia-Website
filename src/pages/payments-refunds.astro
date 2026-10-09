@@ -1,10 +1,11 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <LegalLayout title="Payments & Refunds">
   <h1>Payments &amp; refunds</h1>
-  <p class="legal-updated">Summary of clauses 13–16 of the <a href="/terms">Terms and Conditions</a>. Last updated: 1 October 2026. If anything here conflicts with the Terms, the Terms prevail.</p>
+  <p class="legal-updated">Summary of clauses 13–16 of the <a href={withBase("terms")}>Terms and Conditions</a>. Last updated: 1 October 2026. If anything here conflicts with the Terms, the Terms prevail.</p>
 
   <section>
     <h2>Currency and sequencing</h2>
@@ -56,6 +57,6 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 
   <section>
     <h2>Full terms</h2>
-    <p>See <a href="/terms#clause-13">Terms clauses 13–16</a> for the complete payment, deposit, and refund rules.</p>
+    <p>See <a href={withBase("terms#clause-13")}>Terms clauses 13–16</a> for the complete payment, deposit, and refund rules.</p>
   </section>
 </LegalLayout>

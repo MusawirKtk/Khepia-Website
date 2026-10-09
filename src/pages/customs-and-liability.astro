@@ -1,10 +1,11 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <LegalLayout title="Customs & Liability">
   <h1>Customs &amp; liability</h1>
-  <p class="legal-updated">Summary of clauses 5, 12 and 19 of the <a href="/terms">Terms and Conditions</a>. Last updated: 1 October 2026. If anything here conflicts with the Terms, the Terms prevail.</p>
+  <p class="legal-updated">Summary of clauses 5, 12 and 19 of the <a href={withBase("terms")}>Terms and Conditions</a>. Last updated: 1 October 2026. If anything here conflicts with the Terms, the Terms prevail.</p>
 
   <section>
     <h2>Khepia’s role</h2>
@@ -40,6 +41,6 @@ import LegalLayout from '../layouts/LegalLayout.astro';
 
   <section>
     <h2>Related pages</h2>
-    <p><a href="/prohibited-items">Prohibited items</a> · <a href="/payments-refunds">Payments &amp; refunds</a> · <a href="/terms">Full Terms</a></p>
+    <p><a href={withBase("prohibited-items")}>Prohibited items</a> · <a href={withBase("payments-refunds")}>Payments &amp; refunds</a> · <a href={withBase("terms")}>Full Terms</a></p>
   </section>
 </LegalLayout>

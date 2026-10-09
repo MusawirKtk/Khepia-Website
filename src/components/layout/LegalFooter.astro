@@ -1,4 +1,6 @@
 ﻿---
+import { withBase } from "../../utils/withBase";
+
 const footerSections = [
   {
     title: "Product",
@@ -13,9 +15,9 @@ const footerSections = [
     title: "Trust & Safety",
     links: [
       { label: "Safety", href: "#safety" },
-      { label: "Prohibited items", href: "/prohibited-items" },
-      { label: "Customs", href: "/customs-and-liability" },
-      { label: "Payments and refunds", href: "/payments-refunds" },
+      { label: "Prohibited items", href: withBase("prohibited-items") },
+      { label: "Customs", href: withBase("customs-and-liability") },
+      { label: "Payments and refunds", href: withBase("payments-refunds") },
     ],
   },
   {
@@ -29,8 +31,8 @@ const footerSections = [
   {
     title: "Legal",
     links: [
-      { label: "Terms and Conditions", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms and Conditions", href: withBase("terms") },
+      { label: "Privacy Policy", href: withBase("privacy") },
     ],
   },
 ];
@@ -43,7 +45,7 @@ const currentYear = new Date().getFullYear();
     <div class="footer-grid">
       <!-- Brand column -->
       <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="Khepia home">
+        <a href={withBase()} class="footer-logo" aria-label="Khepia home">
           <svg class="logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.15"/>
             <path d="M8 24V8h4v6.5L17.5 8H22l-6.5 7.5L22 24h-4.5l-4-6.2L12 19v5H8z" fill="currentColor"/>

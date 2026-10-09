@@ -1,9 +1,13 @@
 ---
 import { trainingVideo } from '../../data/training';
+import { withBase } from '../../utils/withBase';
 
 const video = trainingVideo;
 const posterUrl = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
 const embedSrc = `https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+const secondaryHref = video.secondaryCta
+  ? withBase(video.secondaryCta.href)
+  : undefined;
 ---
 
 <section class="training section section--tint" id="training">
@@ -63,8 +67,8 @@ const embedSrc = `https://www.youtube-nocookie.com/embed/${video.youtubeId}?auto
           <button type="button" class="btn btn--primary" id="training-cta-play">
             {video.ctaLabel}
           </button>
-          {video.secondaryCta && (
-            <a href={video.secondaryCta.href} class="btn btn--secondary">
+          {video.secondaryCta && secondaryHref && (
+            <a href={secondaryHref} class="btn btn--secondary">
               {video.secondaryCta.label}
             </a>
           )}
