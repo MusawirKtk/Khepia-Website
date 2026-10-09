@@ -1,72 +1,75 @@
 ---
-import { trainingVideos } from '../../data/training';
+import { trainingVideo } from '../../data/training';
+
+const video = trainingVideo;
+const posterUrl = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
+const embedSrc = `https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`;
 ---
 
 <section class="training section section--tint" id="training">
   <div class="container">
     <div class="section-header reveal">
-      <h2 class="section-title">Know exactly how Khepia works before you use it.</h2>
-      <p class="section-subtitle">Sending and carrying involve different responsibilities. Watch the training for the role you plan to use.</p>
+      <h2 class="section-title">Know how Khepia works before you use it.</h2>
+      <p class="section-subtitle">One short training covers sending and carrying. Confirm you've watched it in the app before you post.</p>
     </div>
 
-    <div class="training-grid">
-      {trainingVideos.map((video, index) => (
-        <div class={`training-card reveal ${video.id === 'overview' ? 'training-card--featured' : ''}`} style={`transition-delay: ${index * 100}ms`}>
-          <!-- Poster / player area -->
-          <div class="training-poster">
-            <div class="poster-placeholder">
-              <div class="poster-icon">
-                {video.id === 'overview' && (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-                )}
-                {video.id === 'sender' && (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 10h20"/></svg>
-                )}
-                {video.id === 'passenger' && (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-                )}
-              </div>
-            </div>
-            <button class="play-btn" aria-label={`Play ${video.title}`}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21"/></svg>
-            </button>
-            <span class="poster-duration">{video.duration}</span>
-          </div>
+    <div class="training-card reveal">
+      <div
+        class="training-player"
+        id="training-player"
+        data-embed-src={embedSrc}
+      >
+        <img
+          class="training-poster-img"
+          src={posterUrl}
+          alt=""
+          width="480"
+          height="360"
+          loading="lazy"
+          decoding="async"
+        />
+        <button
+          type="button"
+          class="play-btn"
+          id="training-play-btn"
+          aria-label={`Play ${video.title}`}
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21"/></svg>
+        </button>
+        <span class="poster-duration">{video.duration}</span>
+      </div>
 
-          <!-- Card content -->
-          <div class="training-content">
-            <span class="training-label">{video.subtitle}</span>
-            <h3 class="training-title">{video.title}</h3>
-            <p class="training-desc">{video.description}</p>
+      <div class="training-content">
+        <span class="training-label">{video.subtitle}</span>
+        <h3 class="training-title">{video.title}</h3>
+        <p class="training-desc">{video.description}</p>
 
-            <!-- Chapters -->
-            <details class="chapters-accordion">
-              <summary class="chapters-toggle">
-                <span>Chapters</span>
-                <svg class="chapters-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <ol class="chapters-list">
-                {video.chapters.map((chapter) => (
-                  <li class="chapter-item">
-                    <span class="chapter-time">{chapter.time}</span>
-                    <span class="chapter-label">{chapter.label}</span>
-                  </li>
-                ))}
-              </ol>
-            </details>
+        <details class="chapters-accordion">
+          <summary class="chapters-toggle">
+            <span>Chapters</span>
+            <svg class="chapters-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <ol class="chapters-list">
+            {video.chapters.map((chapter) => (
+              <li class="chapter-item">
+                <span class="chapter-time">{chapter.time}</span>
+                <span class="chapter-label">{chapter.label}</span>
+              </li>
+            ))}
+          </ol>
+        </details>
 
-            <!-- CTAs -->
-            <div class="training-ctas">
-              <button class="btn btn--primary">{video.ctaLabel}</button>
-              {video.secondaryCta && (
-                <a href={video.secondaryCta.href} class="btn btn--secondary">
-                  {video.secondaryCta.label}
-                </a>
-              )}
-            </div>
-          </div>
+        <div class="training-ctas">
+          <button type="button" class="btn btn--primary" id="training-cta-play">
+            {video.ctaLabel}
+          </button>
+          {video.secondaryCta && (
+            <a href={video.secondaryCta.href} class="btn btn--secondary">
+              {video.secondaryCta.label}
+            </a>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   </div>
 </section>
@@ -89,83 +92,70 @@ import { trainingVideos } from '../../data/training';
     color: var(--text-secondary);
   }
 
-  .training-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  @media (min-width: 768px) {
-    .training-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
-    }
-  }
-
-  /* ── Card ──────────────────────────────────────────── */
   .training-card {
+    max-width: 720px;
+    margin-inline: auto;
     background: var(--surface);
     border-radius: var(--radius-xl);
     overflow: hidden;
     border: 1px solid var(--border-soft);
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow var(--duration-normal) var(--ease-out);
   }
 
-  .training-card:hover {
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* ── Poster ────────────────────────────────────────── */
-  .training-poster {
+  /* Always 16:9 — YouTube embed must not stretch with side content */
+  .training-player {
     position: relative;
     aspect-ratio: 16 / 9;
     background: var(--surface-navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
   }
 
-  .poster-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .training-poster-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
-  .poster-icon {
-    color: rgba(255, 255, 255, 0.2);
+  .training-player :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   .play-btn {
     position: absolute;
     inset: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.35);
     color: white;
-    opacity: 0.8;
-    transition: opacity var(--duration-fast) var(--ease-out);
+    transition: background-color var(--duration-fast) var(--ease-out);
   }
 
-  .play-btn:hover {
-    opacity: 1;
+  .play-btn:hover,
+  .play-btn:focus-visible {
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .play-btn svg {
-    width: 40px;
-    height: 40px;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    width: 56px;
+    height: 56px;
+    padding: 14px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
   }
 
   .poster-duration {
     position: absolute;
     bottom: var(--space-3);
     right: var(--space-3);
+    z-index: 1;
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
     color: white;
@@ -174,13 +164,17 @@ import { trainingVideos } from '../../data/training';
     border-radius: var(--radius-sm);
   }
 
-  /* ── Content ───────────────────────────────────────── */
+  .training-player.is-playing .play-btn,
+  .training-player.is-playing .poster-duration,
+  .training-player.is-playing .training-poster-img {
+    display: none;
+  }
+
   .training-content {
-    padding: var(--space-5) var(--space-6) var(--space-6);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    flex: 1;
   }
 
   .training-label {
@@ -203,7 +197,6 @@ import { trainingVideos } from '../../data/training';
     line-height: var(--leading-normal);
   }
 
-  /* ── Chapters Accordion ────────────────────────────── */
   .chapters-accordion {
     margin-top: var(--space-2);
   }
@@ -255,11 +248,6 @@ import { trainingVideos } from '../../data/training';
     flex-shrink: 0;
   }
 
-  .chapter-label {
-    color: var(--text-secondary);
-  }
-
-  /* ── CTAs ───────────────────────────────────────────── */
   .training-ctas {
     display: flex;
     gap: var(--space-3);
@@ -274,3 +262,30 @@ import { trainingVideos } from '../../data/training';
     padding: var(--space-2) var(--space-4);
   }
 </style>
+
+<script>
+  const player = document.getElementById('training-player');
+  if (player) {
+    const embedSrc = player.getAttribute('data-embed-src');
+    let started = false;
+
+    function startTrainingVideo() {
+      if (started || !embedSrc) return;
+      started = true;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = embedSrc;
+      iframe.title = 'Khepia training video';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+      player.classList.add('is-playing');
+      player.appendChild(iframe);
+    }
+
+    document.getElementById('training-play-btn')?.addEventListener('click', startTrainingVideo);
+    document.getElementById('training-cta-play')?.addEventListener('click', startTrainingVideo);
+  }
+</script>

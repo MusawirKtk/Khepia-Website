@@ -1,22 +1,20 @@
----
+﻿---
 const footerSections = [
   {
     title: "Product",
     links: [
       { label: "How it works", href: "#how-it-works" },
-      { label: "Send", href: "#sender" },
-      { label: "Carry", href: "#carry" },
-      { label: "Tracking", href: "#tracking" },
+      { label: "Send & carry", href: "#sender" },
+      { label: "Payments", href: "#money-flow" },
       { label: "Training", href: "#training" },
     ],
   },
   {
     title: "Trust & Safety",
     links: [
-      { label: "Verification", href: "#verification" },
+      { label: "Safety", href: "#safety" },
       { label: "Prohibited items", href: "/prohibited-items" },
       { label: "Customs", href: "/customs-and-liability" },
-      { label: "Disputes", href: "#faq" },
       { label: "Payments and refunds", href: "/payments-refunds" },
     ],
   },
@@ -24,19 +22,17 @@ const footerSections = [
     title: "Support",
     links: [
       { label: "WhatsApp", href: "https://wa.me/0000000000" },
-      { label: "Email", href: "mailto:support@khepia.pk" },
+      { label: "Email", href: "mailto:khepia.pk@gmail.com" },
       { label: "FAQ", href: "#faq" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Terms and Conditions", href: "/terms" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Sender Terms", href: "/sender-terms" },
       { label: "Passenger Terms", href: "/passenger-terms" },
-      { label: "Payments & Refunds", href: "/payments-refunds" },
-      { label: "Customs & Liability", href: "/customs-and-liability" },
       { label: "Account deletion", href: "/account-deletion" },
     ],
   },
@@ -61,7 +57,7 @@ const currentYear = new Date().getFullYear();
           Send with someone already going.
         </p>
         <p class="footer-corridor">
-          UAE · Saudi Arabia · Pakistan
+          UAE Â· Saudi Arabia Â· Pakistan
         </p>
       </div>
 
@@ -91,7 +87,7 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom bar -->
     <div class="footer-bottom">
       <p class="footer-copyright">
-        © {currentYear} Khepia. All rights reserved.
+        Â© {currentYear} Khepia. All rights reserved.
       </p>
     </div>
   </div>
@@ -121,7 +117,7 @@ const currentYear = new Date().getFullYear();
     }
   }
 
-  /* ── Brand ────────────────────────────────────────── */
+  /* â”€â”€ Brand â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .footer-logo {
     display: flex;
     align-items: center;
@@ -147,7 +143,7 @@ const currentYear = new Date().getFullYear();
     letter-spacing: 0.04em;
   }
 
-  /* ── Columns ──────────────────────────────────────── */
+  /* â”€â”€ Columns â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .footer-column-title {
     font-size: var(--text-label);
     font-weight: var(--weight-semibold);
@@ -173,7 +169,7 @@ const currentYear = new Date().getFullYear();
     color: var(--text-on-dark);
   }
 
-  /* ── Security message ─────────────────────────────── */
+  /* â”€â”€ Security message â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .footer-security {
     display: flex;
     align-items: flex-start;
@@ -197,7 +193,7 @@ const currentYear = new Date().getFullYear();
     line-height: var(--leading-normal);
   }
 
-  /* ── Bottom ───────────────────────────────────────── */
+  /* â”€â”€ Bottom â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .footer-bottom {
     margin-top: var(--space-10);
     padding-top: var(--space-6);

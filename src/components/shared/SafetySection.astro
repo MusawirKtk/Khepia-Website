@@ -4,17 +4,19 @@
 <section class="safety section section--soft" id="safety">
   <div class="container">
     <div class="safety-header reveal">
-      <h2 class="section-title-center">Know what you're agreeing to.</h2>
+      <h2 class="section-title-center">Verified people. Clear rules.</h2>
+      <p class="safety-intro">
+        Every account is CNIC-checked and manually reviewed. Contacts stay private until both sides have paid. Here's what each role agrees to.
+      </p>
     </div>
 
     <div class="safety-grid">
       <div class="safety-card reveal">
         <h3 class="safety-role">Sender</h3>
         <ul class="safety-list">
-          <li>Declare contents accurately</li>
-          <li>Provide accurate weight</li>
+          <li>Declare contents and weight accurately</li>
           <li>Send only permitted / non-dutiable items</li>
-          <li>Pack and label correctly</li>
+          <li>Photograph and pack as the app requires</li>
           <li>Accept customs risk disclosures</li>
         </ul>
       </div>
@@ -22,33 +24,22 @@
       <div class="safety-card reveal" style="transition-delay: 80ms">
         <h3 class="safety-role">Passenger</h3>
         <ul class="safety-list">
-          <li>Inspect the parcel</li>
-          <li>Know what is in the parcel</li>
-          <li>Do not accept unopened or suspicious items</li>
-          <li>Understand that customs can hold the traveller responsible for baggage contents</li>
+          <li>Inspect the parcel before accepting</li>
+          <li>Know what you are carrying</li>
+          <li>Refuse unopened or suspicious items</li>
+          <li>Understand customs responsibility for baggage</li>
         </ul>
       </div>
 
       <div class="safety-card reveal" style="transition-delay: 160ms">
         <h3 class="safety-role">Recipient</h3>
         <ul class="safety-list">
-          <li>Recipient identity must match the delivery record</li>
-          <li>May need to provide CNIC evidence at handover</li>
-        </ul>
-      </div>
-
-      <div class="safety-card safety-card--wide reveal" style="transition-delay: 240ms">
-        <h3 class="safety-role">Everyone</h3>
-        <ul class="safety-list safety-list--horizontal">
-          <li>Use Khepia tracking</li>
-          <li>Keep payment inside the approved flow</li>
-          <li>Contact support if collection or delivery fails</li>
-          <li>Use dispute mechanisms rather than side settlements</li>
+          <li>Identity must match the delivery record</li>
+          <li>May need CNIC evidence at handover</li>
         </ul>
       </div>
     </div>
 
-    <!-- Prohibited items link -->
     <div class="prohibited-link reveal">
       <p>Check what you can and cannot send before creating a parcel.</p>
       <a href="/prohibited-items" class="btn btn--secondary">View prohibited items</a>
@@ -57,10 +48,21 @@
 </section>
 
 <style>
+  .safety-header {
+    text-align: center;
+    max-width: var(--container-text);
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+  }
+
   .section-title-center {
     font-size: var(--text-h2);
-    text-align: center;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-4);
+  }
+
+  .safety-intro {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
   }
 
   .safety-grid {
@@ -84,58 +86,50 @@
     border: 1px solid var(--border-soft);
   }
 
-  .safety-card--wide {
-    grid-column: 1 / -1;
-  }
-
   .safety-role {
     font-size: var(--text-card);
     font-weight: var(--weight-bold);
     margin-bottom: var(--space-4);
-    color: var(--text-primary);
+    color: var(--brand-primary);
   }
 
   .safety-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
   }
 
   .safety-list li {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
     padding-left: var(--space-5);
     position: relative;
   }
 
   .safety-list li::before {
-    content: "→";
+    content: "";
     position: absolute;
     left: 0;
-    color: var(--text-muted);
-  }
-
-  @media (min-width: 768px) {
-    .safety-list--horizontal {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: var(--space-4) var(--space-8);
-    }
-
-    .safety-list--horizontal li {
-      flex: 1 0 calc(50% - var(--space-8));
-    }
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    opacity: 0.5;
   }
 
   .prohibited-link {
     text-align: center;
     margin-top: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
   }
 
   .prohibited-link p {
     font-size: var(--text-sm);
     color: var(--text-secondary);
-    margin-bottom: var(--space-4);
   }
 </style>

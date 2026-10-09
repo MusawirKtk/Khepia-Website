@@ -1,48 +1,10 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+import privacyBody from '../content/legal/privacy-body.html?raw';
 ---
 
 <LegalLayout title="Privacy Policy">
   <h1>Privacy Policy</h1>
-  <p class="legal-notice">This policy is pending final legal review. The content below is a structural placeholder.</p>
-
-  <section>
-    <h2>1. Information we collect</h2>
-    <p>Khepia collects the following information during registration and platform use:</p>
-    <ul>
-      <li>CNIC number and images</li>
-      <li>Name and contact information</li>
-      <li>Overseas and Pakistan WhatsApp numbers</li>
-      <li>Email address</li>
-      <li>Parcel details (contents, weight, photographs, declared value)</li>
-      <li>Recipient information</li>
-      <li>Payment and transaction records</li>
-      <li>Device and usage information</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>2. How we use your information</h2>
-    <p>Information is used for account verification, matching senders with travellers, facilitating transactions, providing support, and improving the platform.</p>
-  </section>
-
-  <section>
-    <h2>3. Information sharing</h2>
-    <p>Contact details are shared between matched parties only after both sides commit. Khepia does not sell personal information to third parties.</p>
-  </section>
-
-  <section>
-    <h2>4. Data retention</h2>
-    <p>This section is pending legal review and will detail retention periods for different data categories.</p>
-  </section>
-
-  <section>
-    <h2>5. Your rights</h2>
-    <p>You may request access to, correction of, or deletion of your personal data. See <a href="/account-deletion">Account Deletion</a> for removal requests.</p>
-  </section>
-
-  <section>
-    <h2>6. Security</h2>
-    <p>Khepia will never ask you to share your password, OTP, or verification code over WhatsApp, email, or phone.</p>
-  </section>
+  <p class="legal-updated">Last updated: 1 October 2026</p>
+  <div class="legal-body" set:html={privacyBody} />
 </LegalLayout>

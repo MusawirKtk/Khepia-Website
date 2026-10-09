@@ -1,5 +1,5 @@
 // ============================================================
-// Khepia FAQ Data
+// Khepia FAQ Data — core questions only
 // ============================================================
 
 export interface FAQItem {
@@ -10,66 +10,42 @@ export interface FAQItem {
 export const faqItems: FAQItem[] = [
   {
     question: "What can I send with Khepia?",
-    answer: "Khepia supports non-dutiable, permitted personal items such as clothes, confectionery, electronics, gifts, and personal belongings. Before creating a parcel, check the prohibited items list for restricted categories. Senders must declare all contents accurately."
+    answer:
+      "Non-dutiable, permitted personal items — clothes, confectionery, electronics, household items, and similar. Check the prohibited items list before you post. If your item isn't listed, email khepia.pk@gmail.com.",
   },
   {
     question: "How does Khepia verify users?",
-    answer: "Every user goes through CNIC verification, overseas and Pakistan WhatsApp number verification, email verification, and manual account review by the Khepia team. Both senders and travellers must be verified before they can use the platform."
+    answer:
+      "CNIC (with front/back photos), overseas and Pakistan mobile, email confirmation, and manual account review. Both senders and passengers must be verified before using the platform.",
   },
   {
     question: "Can the same person send and carry?",
-    answer: "Yes. One verified Khepia account works both ways. You can send a parcel today and carry one on your next flight. Sender and Passenger are modes, not separate accounts."
+    answer:
+      "Yes. One verified account works both ways — sender and passenger are modes, not separate accounts.",
   },
   {
-    question: "How does Khepia find a matching traveller?",
-    answer: "Khepia matches based on four conditions: compatible origin city, compatible destination city, flight date within the sender's collection window, and parcel weight within the traveller's spare baggage capacity."
+    question: "How does matching work?",
+    answer:
+      "A match needs the same corridor (pickup ↔ travelling from, delivery ↔ travelling to), cities that overlap, flight date inside the pickup window, and parcel weight within the passenger's spare capacity. Matching offers go to every qualifying passenger.",
   },
   {
-    question: "When does the sender pay?",
-    answer: "The sender pays the carrying amount after a match is agreed upon and before contact details are unlocked. Khepia holds the payment until delivery is confirmed."
+    question: "Who pays, and in what order?",
+    answer:
+      "The sender pays the carrying amount first (bank transfer, with a short timer). After Khepia confirms that payment, the passenger pays a refundable deposit (declared value, max PKR 25,000) plus 10% commission. Contacts unlock only after both payments are confirmed.",
   },
   {
-    question: "Why does the passenger pay a refundable deposit?",
-    answer: "The traveller temporarily has possession of a parcel belonging to someone else. The refundable deposit is linked to the parcel's declared value and is returned after the delivery flow completes successfully."
+    question: "When does the passenger get paid and get the deposit back?",
+    answer:
+      "After delivery is confirmed (or auto-confirmed if the sender doesn't respond within 24 hours), the deposit returns and the passenger receives the carrying amount minus commission.",
   },
   {
-    question: "When does the passenger get the deposit back?",
-    answer: "The deposit is returned after the parcel is delivered, proof is uploaded, and the sender confirms delivery (or the automatic confirmation period passes without a dispute)."
-  },
-  {
-    question: "When does the passenger earn the carrying amount?",
-    answer: "The passenger's net carrying earning is released after successful delivery confirmation, along with the full deposit return. The net earning is the carrying amount minus Khepia's commission."
-  },
-  {
-    question: "When do the other person's contact details become visible?",
-    answer: "Contact details remain private until both sides are committed — the match is agreed, payments are verified, and all required steps are complete. Only then do names, phone numbers, and WhatsApp access unlock."
-  },
-  {
-    question: "What happens if customs stops a parcel?",
-    answer: "Customs authorities can hold a traveller responsible for the contents of their baggage. Both senders and travellers should understand customs rules for their route. Khepia provides training and guidelines, but customs risk remains with the users as outlined in the terms."
-  },
-  {
-    question: "What happens if collection is missed?",
-    answer: "If collection cannot happen within the agreed window, both parties should use in-app support. The order status can be updated accordingly, and Khepia's team will assist with next steps."
-  },
-  {
-    question: "What happens if delivery is disputed?",
-    answer: "After the passenger marks delivery, the sender has approximately 24 hours to confirm delivery or open a dispute. If a dispute is opened, Khepia's support team reviews the evidence from both sides."
-  },
-  {
-    question: "What happens if the sender does not confirm delivery?",
-    answer: "If the sender does not confirm delivery or open a dispute within the confirmation period, the order follows Khepia's automatic completion rule as outlined in the terms."
-  },
-  {
-    question: "How is recipient identity verified?",
-    answer: "At delivery, the passenger verifies the recipient's identity against the delivery record. The recipient may need to provide CNIC evidence at handover. Delivery proof including recipient identification is uploaded to the platform."
-  },
-  {
-    question: "How is CNIC information used?",
-    answer: "CNIC information is used for user verification and identity matching at handover. It is handled according to Khepia's privacy policy and is not shared publicly or used for unrelated purposes."
+    question: "What about customs?",
+    answer:
+      "Customs can hold a traveller responsible for baggage contents. Senders must declare accurately; passengers must inspect before accepting. Training and terms cover the rules — customs risk stays with the users.",
   },
   {
     question: "Where can I get support?",
-    answer: "You can reach Khepia support through WhatsApp or email. Support is available for verification problems, payment issues, parcel problems, missed collections, delivery issues, disputes, and account problems."
+    answer:
+      "WhatsApp or email at khepia.pk@gmail.com — verification, payments, collection, delivery, and disputes.",
   },
 ];

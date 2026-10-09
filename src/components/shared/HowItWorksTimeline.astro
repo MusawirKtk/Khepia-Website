@@ -1,29 +1,22 @@
 ---
 const steps = [
-  { num: 1, label: "Sender posts parcel", icon: "📦" },
-  { num: 2, label: "Passenger posts flight", icon: "✈️" },
-  { num: 3, label: "Khepia finds matches", icon: "🔗" },
-  { num: 4, label: "Both sides agree", icon: "🤝" },
-  { num: 5, label: "Payments verified", icon: "💳" },
-  { num: 6, label: "Contacts unlock", icon: "🔓" },
-  { num: 7, label: "Parcel collected", icon: "📋" },
-  { num: 8, label: "Passenger travels", icon: "🛫" },
-  { num: 9, label: "Recipient receives", icon: "📬" },
-  { num: 10, label: "Delivery confirmed", icon: "✅" },
-  { num: 11, label: "Passenger paid", icon: "💰" },
-  { num: 12, label: "Both rate", icon: "⭐" },
+  { num: 1, label: "Sender posts parcel" },
+  { num: 2, label: "Passenger posts flight" },
+  { num: 3, label: "Khepia matches" },
+  { num: 4, label: "Both agree & pay" },
+  { num: 5, label: "Collect & deliver" },
+  { num: 6, label: "Confirm & payout" },
 ];
 ---
 
 <section class="how-it-works section section--soft" id="how-it-works">
   <div class="container">
     <div class="section-header reveal">
-      <h2 class="section-title">One parcel. One traveller. One matching journey.</h2>
-      <p class="section-subtitle">From posting to payout — every step in one flow.</p>
+      <h2 class="section-title">One parcel. One traveller. One journey.</h2>
+      <p class="section-subtitle">From posting to payout — six steps.</p>
     </div>
 
     <div class="timeline-wrapper">
-      <!-- Desktop: horizontal path -->
       <div class="timeline-horizontal" role="list">
         {steps.map((step, index) => (
           <div class="timeline-step reveal" style={`transition-delay: ${index * 60}ms`} role="listitem">
@@ -36,7 +29,6 @@ const steps = [
         ))}
       </div>
 
-      <!-- Mobile: vertical timeline -->
       <div class="timeline-vertical" role="list">
         {steps.map((step, index) => (
           <div class="timeline-v-step reveal" style={`transition-delay: ${index * 40}ms`} role="listitem">
@@ -72,7 +64,6 @@ const steps = [
     color: var(--text-secondary);
   }
 
-  /* ── Desktop Horizontal ──────────────────────────── */
   .timeline-horizontal {
     display: none;
   }
@@ -80,9 +71,11 @@ const steps = [
   @media (min-width: 1024px) {
     .timeline-horizontal {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 0;
       position: relative;
+      max-width: 900px;
+      margin-inline: auto;
     }
   }
 
@@ -135,15 +128,16 @@ const steps = [
     color: var(--text-secondary);
     font-weight: var(--weight-medium);
     line-height: var(--leading-snug);
-    max-width: 100px;
+    max-width: 110px;
   }
 
-  /* ── Mobile Vertical ─────────────────────────────── */
   .timeline-vertical {
     display: flex;
     flex-direction: column;
     gap: 0;
     padding-left: var(--space-2);
+    max-width: 360px;
+    margin-inline: auto;
   }
 
   @media (min-width: 1024px) {

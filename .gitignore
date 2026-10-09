@@ -1,6 +1,10 @@
 # local design notes (not for public repo)
 KHEPIA_DESIGN.md
 
+# extracted docx text used only for conversion (source of truth is the .docx)
+/Khepia.pk Terms and Conditions.txt
+/Khepia.pk Privacy Policy.txt
+
 # build output
 dist/
 # generated types

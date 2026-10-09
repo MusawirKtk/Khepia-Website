@@ -2,16 +2,10 @@
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import Hero from '../components/hero/Hero.astro';
-import TrustPromiseRow from '../components/shared/TrustPromiseRow.astro';
 import HowItWorksTimeline from '../components/shared/HowItWorksTimeline.astro';
-import TrainingCenter from '../components/training/TrainingCenter.astro';
 import RoleModeToggle from '../components/shared/RoleModeToggle.astro';
-import SenderStory from '../components/sender/SenderStory.astro';
-import MatchingEngine from '../components/matching/MatchingEngine.astro';
-import PassengerInbox from '../components/passenger/PassengerInbox.astro';
 import MoneyLedger from '../components/money/MoneyLedger.astro';
-import VerificationLayers from '../components/trust/VerificationLayers.astro';
-import TrackingFlow from '../components/tracking/TrackingFlow.astro';
+import TrainingCenter from '../components/training/TrainingCenter.astro';
 import SafetySection from '../components/shared/SafetySection.astro';
 import SupportSection from '../components/support/SupportSection.astro';
 import FAQAccordion from '../components/faq/FAQAccordion.astro';
@@ -23,55 +17,19 @@ import LegalFooter from '../components/layout/LegalFooter.astro';
   <SiteHeader />
 
   <main>
-    <!-- 1. Hero -->
     <Hero />
-
-    <!-- 2. Four product promises -->
-    <TrustPromiseRow />
-
-    <!-- 3. How Khepia Works -->
     <HowItWorksTimeline />
-
-    <!-- 4. Training Centre -->
-    <TrainingCenter />
-
-    <!-- 5. One account, two modes -->
     <RoleModeToggle />
-
-    <!-- 6. Sender journey -->
-    <SenderStory />
-
-    <!-- 7. Matching engine -->
-    <MatchingEngine />
-
-    <!-- 8. Passenger offer inbox + counter-offer -->
-    <PassengerInbox />
-
-    <!-- 9–10. Money flow + deposit explainer -->
     <MoneyLedger />
-
-    <!-- 11–12. Verification, privacy, contact unlock -->
-    <VerificationLayers />
-
-    <!-- 13–19. Collection, flight, tracking, delivery, confirmation, payout, ratings -->
-    <TrackingFlow />
-
-    <!-- 20. Safety and customs -->
+    <TrainingCenter />
     <SafetySection />
-
-    <!-- 21. Support -->
     <SupportSection />
-
-    <!-- 22. FAQ -->
     <FAQAccordion />
-
-    <!-- 23. Final CTA -->
     <FinalCTA />
   </main>
 
   <LegalFooter />
 
-  <!-- Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
