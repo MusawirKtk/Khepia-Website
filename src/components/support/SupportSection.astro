@@ -1,11 +1,4 @@
 ﻿---
-const supportTopics = [
-  "Verification",
-  "Payment",
-  "Collection missed",
-  "Delivery issue",
-  "Dispute",
-];
 ---
 
 <section class="support section section--white" id="support">
@@ -35,21 +28,14 @@ const supportTopics = [
       </div>
     </div>
 
-    <div class="support-topics reveal">
-      <h4 class="topics-title">Common topics</h4>
-      <div class="topics-grid">
-        {supportTopics.map((topic) => (
-          <span class="topic-chip">{topic}</span>
-        ))}
+    <div class="support-legal reveal">
+      <p class="support-legal-lead">Before you register, read:</p>
+      <div class="support-legal-links">
+        <a href="/terms">Terms and Conditions</a>
+        <span class="support-legal-sep" aria-hidden="true">·</span>
+        <a href="/privacy">Privacy Policy</a>
       </div>
     </div>
-
-    <p class="support-legal reveal">
-      Before you register, read the
-      <a href="/terms">Terms and Conditions</a>
-      and
-      <a href="/privacy">Privacy Policy</a>.
-    </p>
   </div>
 </section>
 
@@ -127,46 +113,38 @@ const supportTopics = [
     margin-top: auto;
   }
 
-  .support-topics {
-    text-align: center;
-    margin-top: var(--space-10);
-    max-width: 640px;
-    margin-inline: auto;
-  }
-
-  .topics-title {
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    color: var(--text-muted);
-    margin-bottom: var(--space-4);
-  }
-
-  .topics-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    justify-content: center;
-  }
-
-  .topic-chip {
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    background: var(--surface);
-    border: 1px solid var(--border-soft);
-    font-size: var(--text-label);
-    color: var(--text-secondary);
-  }
-
   .support-legal {
     text-align: center;
-    margin-top: var(--space-10);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
   }
 
-  .support-legal a {
+  .support-legal-lead {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .support-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3) var(--space-4);
+    font-size: var(--text-body);
+  }
+
+  .support-legal-links a {
     color: var(--brand-primary);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+  }
+
+  .support-legal-sep {
+    color: var(--text-muted);
   }
 </style>
