@@ -5,16 +5,16 @@ const footerSections = [
   {
     title: "Product",
     links: [
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Send & carry", href: "#sender" },
-      { label: "Payments", href: "#money-flow" },
-      { label: "Training", href: "#training" },
+      { label: "How it works", href: withBase("#how-it-works") },
+      { label: "Send & carry", href: withBase("#sender") },
+      { label: "Payments", href: withBase("#money-flow") },
+      { label: "Training", href: withBase("#training") },
     ],
   },
   {
     title: "Trust & Safety",
     links: [
-      { label: "Safety", href: "#safety" },
+      { label: "Safety", href: withBase("#safety") },
       { label: "Prohibited items", href: withBase("prohibited-items") },
       { label: "Customs", href: withBase("customs-and-liability") },
       { label: "Payments and refunds", href: withBase("payments-refunds") },
@@ -25,7 +25,7 @@ const footerSections = [
     links: [
       { label: "WhatsApp", href: "https://wa.me/0000000000" },
       { label: "Email", href: "mailto:khepia.pk@gmail.com" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: withBase("#faq") },
     ],
   },
   {

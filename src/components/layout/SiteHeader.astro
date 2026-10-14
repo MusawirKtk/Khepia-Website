@@ -2,12 +2,13 @@
 import { withBase } from "../../utils/withBase";
 
 const navLinks = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Send & carry", href: "#sender" },
-  { label: "Training", href: "#training" },
-  { label: "Safety", href: "#safety" },
-  { label: "Support", href: "#support" },
+  { label: "How it works", href: withBase("#how-it-works") },
+  { label: "Send & carry", href: withBase("#sender") },
+  { label: "Training", href: withBase("#training") },
+  { label: "Safety", href: withBase("#safety") },
+  { label: "Support", href: withBase("#support") },
 ];
+const getKhepiaHref = withBase("#get-khepia");
 ---
 
 <header class="site-header" id="site-header">
@@ -34,13 +35,13 @@ const navLinks = [
     </nav>
 
     <!-- Desktop CTA -->
-    <a href="#get-khepia" class="btn btn--primary header-cta">
+    <a href={getKhepiaHref} class="btn btn--primary header-cta">
       Get Khepia
     </a>
 
     <!-- Mobile controls -->
     <div class="mobile-controls">
-      <a href="#get-khepia" class="btn btn--primary btn--sm mobile-cta">
+      <a href={getKhepiaHref} class="btn btn--primary btn--sm mobile-cta">
         Get app
       </a>
       <button
@@ -81,7 +82,7 @@ const navLinks = [
       <a href={withBase("privacy")} class="mobile-nav-link">Privacy Policy</a>
     </nav>
     <div class="mobile-menu-footer">
-      <a href="#get-khepia" class="btn btn--primary btn--lg mobile-menu-cta">
+      <a href={getKhepiaHref} class="btn btn--primary btn--lg mobile-menu-cta">
         Get Khepia
       </a>
     </div>

@@ -1,5 +1,6 @@
 ---
 import { demoParcel, demoTrip } from '../../data/demo';
+import { withBase } from '../../utils/withBase';
 ---
 
 <section class="hero section--navy" id="hero">
@@ -16,10 +17,10 @@ import { demoParcel, demoTrip } from '../../data/demo';
         Verified people. Matching routes. Protected payment. Tracked delivery.
       </p>
       <div class="hero-ctas">
-        <a href="#sender" class="btn btn--on-dark btn--lg" id="hero-send-cta">
+        <a href={withBase("#sender")} class="btn btn--on-dark btn--lg" id="hero-send-cta">
           Send a parcel
         </a>
-        <a href="#carry" class="btn btn--outline-dark btn--lg" id="hero-carry-cta">
+        <a href={withBase("#carry")} class="btn btn--outline-dark btn--lg" id="hero-carry-cta">
           Carry & earn
         </a>
       </div>

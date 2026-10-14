@@ -8,8 +8,8 @@ import { withBase } from "../../utils/withBase";
       <h2 class="cta-headline">Something to send? Flying somewhere?</h2>
       <p class="cta-sub">Verified people. Matching routes. Protected payment.</p>
       <div class="cta-actions">
-        <a href="#sender" class="btn btn--on-dark btn--lg">Send a parcel</a>
-        <a href="#carry" class="btn btn--outline-dark btn--lg">Carry & earn</a>
+        <a href={withBase("#sender")} class="btn btn--on-dark btn--lg">Send a parcel</a>
+        <a href={withBase("#carry")} class="btn btn--outline-dark btn--lg">Carry & earn</a>
       </div>
       <p class="cta-legal">
         <a href={withBase("terms")}>Terms</a>
